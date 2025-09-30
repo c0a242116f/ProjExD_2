@@ -28,6 +28,7 @@ def check_bound(rct: pg.Rect) -> tuple[bool, bool]:
         tate = False
     return yoko, tate
 
+
 def gameover(screen: pg.Surface) -> None:
     bg_2 = pg.Surface((WIDTH, HEIGHT))
     bg_2.fill((0, 0, 0))  #1
@@ -50,6 +51,7 @@ def gameover(screen: pg.Surface) -> None:
     pg.display.update()
     time.sleep(5)  #6
 
+
 def init_bb_imgs() -> tuple[list[pg.Surface],list[int]]:
     bb_imgs=[]
     for r in range(1,11):
@@ -59,6 +61,7 @@ def init_bb_imgs() -> tuple[list[pg.Surface],list[int]]:
         bb_img.set_colorkey((0,0,0))
         bb_accs = [a for a in range(1,11)]
     return bb_imgs,bb_accs
+
 
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
@@ -86,7 +89,6 @@ def main():
         if kk_rct.colliderect(bb_rct):
             gameover(screen)
             return
-
         key_lst = pg.key.get_pressed()
         sum_mv = [0, 0]
         for key, mv in DELTA.items():
